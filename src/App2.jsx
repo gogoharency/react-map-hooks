@@ -9,10 +9,14 @@ class Leaf extends Component {
   render() {
     return (
       <BatteryContext.Consumer>
-        {(battery) => (
-          <h1>
-            Battery2: {battery}
-          </h1>
+        {(battery) => ( // battery获取Provider的value值，可能是对象
+          <OnlineContext.Consumer>
+            {(online) => (
+              <h1>
+                Battery2: {battery.battery}, Online: {String(online)}
+              </h1>
+            )}
+          </OnlineContext.Consumer>
         )}
       </BatteryContext.Consumer>
     )
@@ -34,20 +38,20 @@ class App extends Component {
   render() {
     const { battery, online } = this.state
     return (
-      <BatteryContext.Provider value={battery}>
+      <BatteryContext.Provider value={this.state}>
         <OnlineContext.Provider value={online}>
           <button
             type="button"
-            onClick={() => this.setState({ battery: battery - 1 })}
+            onClick={() => this.setState({ battery: battery - 3 })}
           >
-            Press
+            Press2
           </button>
 
           <button
             type="button"
             onClick={() => this.setState({ online: !online })}
           >
-            Switch
+            Switch2
           </button>
           <Middle />
         </OnlineContext.Provider>
