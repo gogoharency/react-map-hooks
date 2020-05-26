@@ -79,6 +79,12 @@ class App extends Component {
           <Link to="/contextType" style={{ color: 'black' }}>
             <div>点击跳转到contextType</div>
           </Link>
+          <Link to="/AppLazy" style={{ color: 'black' }}>
+            <div>点击跳转到lazy</div>
+          </Link>
+          <Link to="/AppMemo" style={{ color: 'black' }}>
+            <div>点击跳转到AppMemo</div>
+          </Link>
 
 
         
