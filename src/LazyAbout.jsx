@@ -5,9 +5,6 @@ import './App.css'
 
 
 class LazyAbout extends Component {
-    componentDidMount () {
-      console.log(this.props)
-    }
 
   render() {
     
