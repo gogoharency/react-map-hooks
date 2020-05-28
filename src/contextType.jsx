@@ -44,7 +44,7 @@ class App extends Component {
           >
             Switch_context
           </button>
-          <Middle />
+          <Child />
         </OnlineContext.Provider>
       </BatteryContext.Provider>
     )
