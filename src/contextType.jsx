@@ -4,12 +4,13 @@ import Child from './contextTypeChild.jsx'
 import logo from './logo.svg'
 import './App.css'
 
+// 只能获取单一context 的值
 class Leaf extends Component {
   static contextType = BatteryContext
 
   render() {
     const battery = this.context
-    return <h1>Battery_context: {battery}</h1>
+  return <h1>Battery_context: {battery}</h1>
   }
 }
 
@@ -45,6 +46,7 @@ class App extends Component {
             Switch_context
           </button>
           <Child />
+          <Middle />
         </OnlineContext.Provider>
       </BatteryContext.Provider>
     )

@@ -86,7 +86,13 @@ class App extends Component {
             <div>点击跳转到AppMemo</div>
           </Link>
           <Link to="/State" style={{ color: 'black' }}>
-            <div>点击跳转到State</div>
+            <div>点击跳转到State-effect</div>
+          </Link>
+          <Link to="/HooksContext" style={{ color: 'black' }}>
+            <div>点击跳转到HooksContext</div>
+          </Link>
+          <Link to="/UseMemo" style={{ color: 'black' }}>
+            <div>点击跳转到UseMemo</div>
           </Link>
 
 

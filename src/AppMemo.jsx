@@ -98,7 +98,8 @@ class AppMemo extends PureComponent {
         <Foo2 person={person}></Foo2>
         {/* 添加回掉函数后(每次都会传入新的函数)，子组件会刷新 */}
         {/* <Foo3 person={person} cb={() => {}}></Foo3> */}
-        {/* 添加回掉函数后（每次传入定义好的函数），子组件会刷新 */}
+
+        {/* 添加回掉函数后（每次传入定义好的函数），子组件不会刷新 */}
         <Foo3 person={person} cb={this.callback}></Foo3>
         <FooMemo person={person} cb={this.callback}></FooMemo>
         <div>{person.age}</div>
