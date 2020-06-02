@@ -35,14 +35,14 @@ class Foo2 extends PureComponent {
 class Foo3 extends PureComponent {
   render() {
     console.log('render foo3')
-    return <div>{this.props.person.age}</div>
+    return <div onClick={this.props.cb}>{this.props.person.age}</div>
   }
 }
 
 // React.memo 为高阶组件。它与 React.PureComponent 非常相似，但只适用于函数组件(无状态组件)，而不适用 class 组件。
 const FooMemo = memo(function FooMemo(props) {
   console.log('render FooMemo')
-  return <div>{props.person.age}</div>
+  return <div onClick={props.cb}>{props.person.age}</div>
 })
 
 class AppMemo extends PureComponent {
@@ -53,7 +53,8 @@ class AppMemo extends PureComponent {
     },
   }
 
-  callback = () => {}
+  // 函数一直没变，所以不会造成memo，PureComponent子组件刷新
+  callback = () => {this.setState({count: this.state.count + 1})}
 
   changeMap = () => {
     // 第一种

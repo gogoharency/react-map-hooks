@@ -20,6 +20,7 @@ class FooContextType extends Component {
   }
 }
 
+// *****************
 function UseContext() {
   const count = useContext(CountContextHooks)
   return <h1>UseContext: {count}</h1>
