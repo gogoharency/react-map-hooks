@@ -11,10 +11,11 @@ import contextType from './contextType.jsx'
 import State from './container/State-effect/index.jsx'
 import HooksContext from './container/hooks-context/index.jsx'
 import UseMemo from './container/usememo-callback/UseMemo.jsx'
+import UseRef from './container/Ref-hooks/index.jsx'
 import * as serviceWorker from './serviceWorker'
 
 const AppLazy = lazy(() =>
-import(/* webpackChunkName: "LazyAbout" */ './AppLazy.jsx')
+  import(/* webpackChunkName: "LazyAbout" */ './AppLazy.jsx')
 )
 
 ReactDOM.render(
@@ -25,12 +26,13 @@ ReactDOM.render(
       <Route path="/contextType" component={contextType} />
       <Route path="/context" component={App2} />
       <Suspense fallback={<LazyAbout></LazyAbout>}>
-      <Route path="/AppLazy" component={AppLazy} />
+        <Route path="/AppLazy" component={AppLazy} />
       </Suspense>
       <Route path="/AppMemo" component={AppMemo} />
       <Route path="/State" component={State} />
       <Route path="/HooksContext" component={HooksContext} />
       <Route path="/UseMemo" component={UseMemo} />
+      <Route path="/UseRef" component={UseRef} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

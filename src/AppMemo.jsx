@@ -1,5 +1,4 @@
 import React, { Component, PureComponent, memo } from 'react'
-import logo from './logo.svg'
 import { Map } from 'immutable'
 import './App.css'
 

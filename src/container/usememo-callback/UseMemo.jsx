@@ -20,8 +20,12 @@ function UseMemo(props) {
   //   return count * 2
   // }, [count])
 
+  // function ff () {
+  //   return count * 2
+  // }
   // 当count === 3时，判断为true，double=6，再次点击double=8，count === 4时，判断为false
   const double = useMemo(() => {
+    // return ff()
     return count * 2
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count === 3])
@@ -34,6 +38,8 @@ function UseMemo(props) {
   //   double / 4
   // , [double])
 
+
+  
   // 此时子组件会渲染,子组件props.onClick可正常调用（初始化时，不会运行）
   // const onClick = () => {
   //   console.log('click')
@@ -51,6 +57,7 @@ function UseMemo(props) {
   //     console.log('click')
   //   }
   // }, [])
+   // useCallback(fn, deps)【不需要return fn】 相当于== useMemo(() => fn, deps)【相当于return fn】
   // const onClick = useCallback(() => {
   //   console.log('click')
   // }, [])

@@ -1,7 +1,6 @@
 import React, { Component, createContext } from 'react'
 import { BatteryContext, OnlineContext } from './createContext.js'
 import Child from './contextTypeChild.jsx'
-import logo from './logo.svg'
 import './App.css'
 
 // 只能获取单一context 的值

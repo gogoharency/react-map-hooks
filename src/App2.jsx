@@ -1,5 +1,4 @@
 import React, { Component, createContext } from 'react'
-import logo from './logo.svg'
 import './App.css'
 
 const BatteryContext = createContext() // 只有当组件所处的树中没有匹配到 Provider 时，其 defaultValue 参数才会生效。

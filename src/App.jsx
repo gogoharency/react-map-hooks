@@ -94,6 +94,9 @@ class App extends Component {
           <Link to="/UseMemo" style={{ color: 'black' }}>
             <div>点击跳转到UseMemo</div>
           </Link>
+          <Link to="/UseRef" style={{ color: 'black' }}>
+            <div>点击跳转到UseRef</div>
+          </Link>
 
 
         
