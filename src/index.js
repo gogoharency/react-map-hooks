@@ -18,6 +18,7 @@ const AppLazy = lazy(() =>
 )
 const App2 = AsyncComponent(() => import("./App2.jsx"));
 const UseRef = AsyncComponent(() => import("./container/Ref-hooks/index.jsx"));
+console.log(UseRef)
 
 
 ReactDOM.render(

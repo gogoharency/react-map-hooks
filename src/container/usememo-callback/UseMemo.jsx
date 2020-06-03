@@ -64,7 +64,7 @@ function UseMemo(props) {
 
 
 
-  // 每次点击onClick函数重新获取新的ClickCount状态，函数改变，此时子组件会渲染。子组件props.onClick可正常调用（初始化时，不会运行）
+  // 每次点击onClick函数重新获取新的ClickCount状态（该回调函数仅在某个依赖项改变时才会更新），函数改变，此时子组件会渲染。子组件props.onClick可正常调用（初始化时，不会运行）
   // const onClick = useCallback(() => {
   //   console.log('click')
   //   setClickCount(ClickCount + 1)

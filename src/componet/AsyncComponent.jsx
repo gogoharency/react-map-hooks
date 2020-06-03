@@ -26,22 +26,18 @@ export default function asyncComponent(importComponent) {
 
   return AsyncComponent
 }
-// let C;
+
 // export default function asyncComponent(importComponent) {
 //   function AsyncComponent (props) {
-//     const [component, setComponent] = useState(null)
+//     const [Component, setComponent] = useState(null)
 //     useEffect(() => {
 //       importComponent().then((mod) => {
 //         console.log(3131)
-//         // this.setState({
-//         //   component: mod.default
-//         // })
 //         setComponent(mod.default)
-//         C = mod.default
 //       })
 //     }, [])
-//     console.log(<C {...props} />)
-//     return component ? <C {...props} /> : null
+
+//     return Component ? <Component {...props} /> : null
     
 
 //   }
