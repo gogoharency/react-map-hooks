@@ -1,4 +1,4 @@
-import React, {Component, useState, useEffect} from "react"
+import React, { Component, useState, useEffect, useMemo } from 'react'
 
 export default function asyncComponent(importComponent) {
   class AsyncComponent extends Component {
@@ -26,20 +26,21 @@ export default function asyncComponent(importComponent) {
 
   return AsyncComponent
 }
-
 // export default function asyncComponent(importComponent) {
-//   function AsyncComponent (props) {
-//     const [Component, setComponent] = useState(null)
+//   function AsyncComponent(props) {
+//     const [component, setComponent] = useState(null)
 //     useEffect(() => {
 //       importComponent().then((mod) => {
-//         console.log(3131)
 //         setComponent(mod.default)
 //       })
 //     }, [])
 
-//     return Component ? <Component {...props} /> : null
-    
+//     const C = useMemo(() => {
+//       console.log(component)
+//       return component
+//     }, [component])
 
+//     return C ? <C {...props} /> : null
 //   }
 //   return AsyncComponent
 // }

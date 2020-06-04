@@ -2,9 +2,8 @@ import React, {
   PureComponent,
   useState,
   useEffect,
-  useMemo,
   useCallback,
-  useRef
+  useRef,
 } from 'react'
 
 // class Counter extends PureComponent {
@@ -14,31 +13,44 @@ import React, {
 //   }
 // }
 function useCounter(count) {
-  return (
-    <div>{count}</div>
-  )
+  const size = useSize()
+  return <div>{count}+{size.width}x{size.height}</div>
 }
 
 function useSize() {
-  
+  const [size, setSize] = useState({
+    width: document.documentElement.clientWidth,
+    height: document.documentElement.clientHeight,
+  })
+
+  // const onResize = () => {
+  //   setSize({
+  //     width: document.documentElement.clientWidth,
+  //     height: document.documentElement.clientHeight,
+  //   })
+  // }
+
+  const onResize = useCallback(() => {
+    setSize({
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+    })
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener('resize', onResize, false)
+
+    return () => {
+      window.addEventListener('resize', onResize, false)
+    }
+  }, [onResize])
+
+  return size
 }
 
 function useCount(defaultCount) {
   const [count, setCount] = useState(defaultCount)
   let it = useRef()
-
-  useEffect(() => {
-    it.current = setInterval(() => {
-      setCount((count) => count + 1)
-    }, 1000)
-
-  }, [])
-
-  useEffect(() => {
-    if (count > 10) {
-      clearInterval(it.current)
-    }
-  }, [count, it])
 
   return [count, setCount]
 }
@@ -46,11 +58,18 @@ function useCount(defaultCount) {
 function UseRef(props) {
   const [count, setCount] = useCount(0)
   const Counter = useCounter(count)
+  const size = useSize()
+
+  const onClick = () => {
+    setCount(() => {
+      return count + 1
+    })
+  }
 
   return (
     <>
-      <button type="button" onClick={() => setCount(() => count + 1)}>
-        Press2（{count}）
+      <button type="button" onClick={onClick}>
+        Press2（{count}）{size.width}x{size.height}
       </button>
       {/* <Counter count={count} /> */}
       {Counter}
