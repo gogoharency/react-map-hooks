@@ -40,23 +40,23 @@ function UseMemo(props) {
 
 
   
-  // 此时子组件会渲染,子组件props.onClick可正常调用（初始化时，不会运行）
+  // 点击button此时子组件会渲染,子组件props.onClick可正常调用（初始化时，不会运行）
   // const onClick = () => {
   //   console.log('click')
   // }
 
   ////////////////////////////////////////////////做参考用
-  // 错误写法，此时子组件不会渲染,子组件props.onClick不可正常调用（初始化时，会运行）
+  // 错误写法，点击button此时子组件不会渲染,子组件props.onClick不可正常调用（初始化时，会运行）
   // const onClick = useMemo(() => {
   //   console.log('click')
   // }, [])
 
-  // 正确写法，此时子组件不会渲染,子组件props.onClick可正常调用（初始化时，不会运行）
-  // const onClick = useMemo(() => {
-  //   return () => {
-  //     console.log('click')
-  //   }
-  // }, [])
+  // 正确写法，点击button此时子组件不会渲染,子组件props.onClick可正常调用（初始化时，不会运行）
+  const onClick = useMemo(() => {
+    return () => {
+      console.log('click')
+    }
+  }, [])
    // useCallback(fn, deps)【不需要return fn】 相当于== useMemo(() => fn, deps)【相当于return fn】
   // const onClick = useCallback(() => {
   //   console.log('click')
@@ -70,11 +70,10 @@ function UseMemo(props) {
   //   setClickCount(ClickCount + 1)
   // }, [ClickCount])
 // 每次点击onClick，函数没有改变，此时子组件不会渲染。子组件props.onClick可正常调用（初始化时，不会运行）
-  const onClick = useCallback(() => {
-    console.log('click')
-    setClickCount((ClickCount) => ClickCount + 1)
-  }, [])
-
+  // const onClick = useCallback(() => {
+  //   console.log('click')
+  //   setClickCount((ClickCount) => ClickCount + 1)
+  // }, [])
   return (
     <>
       <button type="button" onClick={() => setCount(count + 1)}>

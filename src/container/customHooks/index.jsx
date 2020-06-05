@@ -1,9 +1,9 @@
 import React, {
   PureComponent,
+  memo,
   useState,
   useEffect,
   useCallback,
-  useRef,
 } from 'react'
 
 // class Counter extends PureComponent {
@@ -17,13 +17,20 @@ function useCounter(count) {
   return <div>{count}+{size.width}x{size.height}</div>
 }
 
+// const useCounter = memo(function useCounter(count) {
+//   const size = useSize()
+//   return <div>{count}+{size.width}x{size.height}</div>
+// })
+
 function useSize() {
   const [size, setSize] = useState({
     width: document.documentElement.clientWidth,
     height: document.documentElement.clientHeight,
   })
 
+  // 这样写每次状态改变，onResize函数都会重新跟新
   // const onResize = () => {
+  //   console.log(31)
   //   setSize({
   //     width: document.documentElement.clientWidth,
   //     height: document.documentElement.clientHeight,
@@ -31,6 +38,7 @@ function useSize() {
   // }
 
   const onResize = useCallback(() => {
+    console.log(31)
     setSize({
       width: document.documentElement.clientWidth,
       height: document.documentElement.clientHeight,
@@ -38,6 +46,7 @@ function useSize() {
   }, [])
 
   useEffect(() => {
+    console.log(33331)
     window.addEventListener('resize', onResize, false)
 
     return () => {
@@ -50,7 +59,6 @@ function useSize() {
 
 function useCount(defaultCount) {
   const [count, setCount] = useState(defaultCount)
-  let it = useRef()
 
   return [count, setCount]
 }

@@ -10,6 +10,7 @@ import State from './container/State-effect/index.jsx'
 import HooksContext from './container/hooks-context/index.jsx'
 import UseMemo from './container/usememo-callback/UseMemo.jsx'
 import customHooks from './container/customHooks/index.jsx'
+import Liftcyc from './container/lift-cyc/index.jsx'
 import * as serviceWorker from './serviceWorker'
 import LazyAbout from './LazyAbout.jsx'
 
@@ -37,6 +38,7 @@ ReactDOM.render(
       <Route path="/UseMemo" component={UseMemo} />
       <Route path="/UseRef" component={UseRef} />
       <Route path="/customHooks" component={customHooks} />
+      <Route path="/Liftcyc" component={Liftcyc} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

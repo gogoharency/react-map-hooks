@@ -100,6 +100,9 @@ class App extends Component {
           <Link to="/customHooks" style={{ color: 'black' }}>
             <div>点击跳转到customHooks</div>
           </Link>
+          <Link to="/Liftcyc" style={{ color: 'black' }}>
+            <div>点击跳转到Liftcyc</div>
+          </Link>
 
 
         
