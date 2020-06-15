@@ -103,6 +103,10 @@ class App extends Component {
           <Link to="/Liftcyc" style={{ color: 'black' }}>
             <div>点击跳转到Liftcyc</div>
           </Link>
+          <div>demoRedux</div>
+          <Link to="/DemoRedux01" style={{ color: 'black' }}>
+            <div>点击跳转到DemoRedux01</div>
+          </Link>
 
 
         

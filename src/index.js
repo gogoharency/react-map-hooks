@@ -11,6 +11,7 @@ import HooksContext from './container/hooks-context/index.jsx'
 import UseMemo from './container/usememo-callback/UseMemo.jsx'
 import customHooks from './container/customHooks/index.jsx'
 import Liftcyc from './container/lift-cyc/index.jsx'
+import DemoRedux01 from './container/demoRedux/deg01/index.jsx'
 import * as serviceWorker from './serviceWorker'
 import LazyAbout from './LazyAbout.jsx'
 
@@ -39,6 +40,7 @@ ReactDOM.render(
       <Route path="/UseRef" component={UseRef} />
       <Route path="/customHooks" component={customHooks} />
       <Route path="/Liftcyc" component={Liftcyc} />
+      <Route path="/DemoRedux01" component={DemoRedux01} />
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
